@@ -1,22 +1,40 @@
-import java.util.Scanner;
-class Income
-{
-	public static void main(String args[])
-	{
-	double tax=0,it;
-	Scanner sc=new Scanner(System.in);
-	System.out.println("Enter income ");
-	it=sc.nextDouble();
-	if(it<=200000)
-		tax=0;
-	else if(it<=300000)
-		tax=0.1*(it-200000);
-	else if(it<=500000)
-		tax=(0.2*(it-300000))+(0.1*100000);
-	else if(it<=1000000)
-		tax=(0.3*(it-500000))+(0.2*200000)+(0.1*100000);
-	else
-		tax=(0.4*(it-1000000))+(0.3*500000)+(0.2*200000)+(0.1*100000);
-	System.out.println("Income tax amount is "+tax);
-	}
+import java.util.*;
+import java.lang.*;
+public class Main{
+public static void main(String args[]){
+String t;
+int c;
+Scanner obj=new Scanner(System.in);
+System.out.println("enter the amount : ");
+t=obj.nextLine();
+for(int i=0;i<t.length();i++){
+if(t.charAt(i)>=48 && t.charAt(i)<=57){
+continue;
+}
+else{
+System.out.println("invalid input!!!");
+System.exit(0);
+}
+}
+int amt=Integer.parseInt(t);
+if(amt>0 && amt<=150000){
+System.out.println("no tax !!!");
+}
+else if(amt>150000 && amt<=300000){
+System.out.println("your tax amount : "+ (10*amt)/100);
+}
+else if(amt>300000 && amt<=500000){
+System.out.println("your tax amount : "+ (20*amt)/100);
+}
+else if(amt>500000 && amt<=1000000){
+System.out.println("your tax amount : "+ (30*amt)/100);
+}
+else if(amt>1000000){
+	System.out.println("your tax amount : "+ (40*amt)/100);
+	System.out.println("the taxable amount is:"+(amt-150000));
+}
+else{
+System.out.println("error !!! enter the amount properly");
+}
+}
 }
